@@ -7,6 +7,7 @@ import re
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 from pythainlp import sent_tokenize, word_tokenize
+import nltk
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 import pythainlp
 
