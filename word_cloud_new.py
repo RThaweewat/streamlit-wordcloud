@@ -5,16 +5,21 @@ from bs4 import BeautifulSoup
 import re
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
+from pythainlp import sent_tokenize, word_tokenize
+import pythainlp
 
 st.title('Word Cloud Generator')
 st. markdown("""
 Author: Thaweewat, 28/4/2022
 """)
 st.set_option('deprecation.showPyplotGlobalUse', False)
+
+st.write("PythaiVersion: ", pythainlp.__version__)
 regexp = r"[ก-๙a-zA-Z']+"
 
 # Create some sample text
 Text = st.text_input('Text :', 'put text here')
+Text = word_tokenize(Text)
 
 st.sidebar.header("Select No. of words you want to display")
 words = st.slider('Set maximum charactor: ', 10, 5000, 100)
