@@ -14,14 +14,14 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 # Create some sample text
-links = st.text_input('URL:', 'put link here')
-st.write('The current link is', links)
+URL = st.text_input('URL:', 'put link here')
+st.write('The current link is', URL)
 
 st.sidebar.header("Select No. of words you want to display")
 words = st.sidebar.selectbox("No. of words", range(10, 1000, 10))
 
 if URL is not None:
-    r = requests.get(links)
+    r = requests.get(URL)
     #using the web scraping library that is Beautiful Soup
     soup = BeautifulSoup(r.content, 'html.parser')
     #extracting the data that is in 'div' content of HTML page
