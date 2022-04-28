@@ -20,8 +20,7 @@ st.sidebar.header("Select No. of words you want to display")
 words = st.sidebar.selectbox("No. of words", range(10, 1000, 10))
 
 # Create and generate a word cloud image:
-wordcloud = WordCloud(background_color = "white", max_words =
-          words,stopwords = stopwords).generate(Text)
+wordcloud = WordCloud(background_color = "white", max_words = words).generate(Text)
 
 # Display the generated image:
 plt.imshow(wordcloud, interpolation='bilinear')
