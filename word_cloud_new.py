@@ -29,7 +29,7 @@ Text = [i for i in Text if i not in stopwords]
 Text = TreebankWordDetokenizer().detokenize(Text)
 
 st.sidebar.header("Select No. of words you want to display")
-words = st.slider('Set maximum charactor: ', 10, 5000, 500)
+words = st.slider('Set maximum charactor: ', 10, 2000, 200)
 st.write("Maximum words: ", words, 'Characters')
 
 
