@@ -1,4 +1,4 @@
 wordcloud==1.8.1
 pythainlp==3.0.5
 click<=8.0.4
-nltk==3.7
+nltk==3.5
