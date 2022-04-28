@@ -14,8 +14,6 @@ st. markdown("""
 Author: Thaweewat, 28/4/2022
 """)
 st.set_option('deprecation.showPyplotGlobalUse', False)
-
-st.write("PythaiVersion: ", pythainlp.__version__)
 regexp = r"[ก-๙a-zA-Z']+"
 
 # Create some sample text
