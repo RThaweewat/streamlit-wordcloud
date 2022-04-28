@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from pythainlp import sent_tokenize, word_tokenize
 import nltk
 from nltk.tokenize.treebank import TreebankWordDetokenizer
+from pythainlp.corpus import thai_stopwords
 import pythainlp
 
 st.title('Word Cloud Generator')
@@ -23,6 +24,8 @@ test = "Place text here"
 # Create some sample text
 token = st.text_input('Text :', test)
 Text = word_tokenize(token, keep_whitespace=False)
+stopwords = list(thai_stopwords())
+Text = [i for i in Text if i not in stopwords]
 Text = TreebankWordDetokenizer().detokenize(Text)
 
 st.sidebar.header("Select No. of words you want to display")
