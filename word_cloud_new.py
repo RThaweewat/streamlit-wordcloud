@@ -44,6 +44,9 @@ wordcloud = WordCloud(background_color = "white"
                       , margin=2
                       , font_path ='Kanit-Regular.ttf').generate(Text)
 
+with st.spinner('Processing...'):
+    time.sleep(5)
+st.success('Done!')
 
 # Display the generated image:
 plt.imshow(wordcloud, interpolation='bilinear')
