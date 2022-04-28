@@ -22,9 +22,9 @@ regexp = r"[ก-๙a-zA-Z']+"
 token = st.text_input('Text :', 'put text here')
 Text = word_tokenize(token, keep_whitespace=False)
 Text = TreebankWordDetokenizer().detokenize(Text)
-st.write("Maximum words: ", Text, 'Characters')
+
 st.sidebar.header("Select No. of words you want to display")
-words = st.slider('Set maximum charactor: ', 10, 5000, 100)
+words = st.slider('Set maximum charactor: ', 10, 5000, 200)
 st.write("Maximum words: ", words, 'Characters')
 
 
