@@ -1,9 +1,3 @@
-!pip install pythainlp
-!pip install epitran
-!pip install sklearn_crfsuite
-!pip install tensorflow deepcut
-!pip install attacut
-
 
 import streamlit as st
 import pandas as pd
