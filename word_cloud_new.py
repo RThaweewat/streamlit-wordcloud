@@ -30,14 +30,11 @@ wordcloud = WordCloud(background_color = "white"
                       , width=2000
                       , height=2000
                       , relative_scaling = 0.3
-                      , min_font_size=1
                       , colormap='plasma'
-                      , scale=3
-                      , font_step=4
                       , collocations=False
                       , regexp=regexp
                       , margin=2
-                      , font_path='Kanit-Regular.ttf').generate(Text)
+                      , font_path ='Kanit-Regular.ttf').generate(Text)
                       
 # Display the generated image:
 plt.imshow(wordcloud, interpolation='bilinear')
