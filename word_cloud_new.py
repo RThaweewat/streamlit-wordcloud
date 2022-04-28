@@ -24,7 +24,8 @@ st.write("Maximum words: ", words, 'Characters')
 wordcloud = WordCloud(background_color = "white"
                       , max_words = words
                       , width=2000
-                      , height=2000).generate(Text)
+                      , height=2000
+                      , font_path='Kanit-Regular.ttf').generate(Text)
 
 # Display the generated image:
 plt.imshow(wordcloud, interpolation='bilinear')
