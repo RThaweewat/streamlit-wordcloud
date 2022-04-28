@@ -7,6 +7,7 @@ import re
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 from pythainlp import sent_tokenize, word_tokenize
+from nltk.tokenize.treebank import TreebankWordDetokenizer
 import pythainlp
 
 st.title('Word Cloud Generator')
@@ -18,13 +19,13 @@ regexp = r"[ก-๙a-zA-Z']+"
 
 # Create some sample text
 token = st.text_input('Text :', 'put text here')
-Text = print(word_tokenize(token))
+Text = word_tokenize(token, keep_whitespace=False)
+Text = TreebankWordDetokenizer().detokenize(Text)
 st.write("Maximum words: ", Text, 'Characters')
 st.sidebar.header("Select No. of words you want to display")
 words = st.slider('Set maximum charactor: ', 10, 5000, 100)
 st.write("Maximum words: ", words, 'Characters')
 
-# Create and generate a word cloud image:
 
 wordcloud = WordCloud(background_color = "white"
                       , max_words = words
