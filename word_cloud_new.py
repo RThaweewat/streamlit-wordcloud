@@ -17,7 +17,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 Text = st.text_input('Text :', 'put text here')
 
 st.sidebar.header("Select No. of words you want to display")
-words = st.slider('How old are you?', 10, 5000, 100)
+words = st.slider('Set maximum charactor: ', 10, 5000, 100)
 st.write("Maximum words: ", words, 'Characters')
 
 # Create and generate a word cloud image:
