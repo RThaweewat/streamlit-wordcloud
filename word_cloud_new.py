@@ -19,12 +19,13 @@ regexp = r"[ก-๙a-zA-Z']+"
 # Create some sample text
 Text = st.text_input('Text :', 'put text here')
 Text = word_tokenize(Text)
-
+st.write("Maximum words: ", Text, 'Characters')
 st.sidebar.header("Select No. of words you want to display")
 words = st.slider('Set maximum charactor: ', 10, 5000, 100)
 st.write("Maximum words: ", words, 'Characters')
 
 # Create and generate a word cloud image:
+"""
 wordcloud = WordCloud(background_color = "white"
                       , max_words = words
                       , width=2000
@@ -35,7 +36,8 @@ wordcloud = WordCloud(background_color = "white"
                       , regexp=regexp
                       , margin=2
                       , font_path ='Kanit-Regular.ttf').generate(Text)
-                      
+"""
+
 # Display the generated image:
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
