@@ -15,10 +15,10 @@ FMCG_rfm_level_agg = df[df['segment2_lv1'] == segments].groupby('Segment').agg({
     'Recency': 'mean',
     'Frequency': 'mean',
     'Monetary': ['mean', 'count']
-}).round(1)
+}).round(1).reset_index()
 
-st.dataframe(FMCG_rfm_level_agg.style.highlight_max(axis=0))
+st.dataframe(FMCG_rfm_level_agg.style.background_gradient(axis=0))
 st.subheader(f"RFM Segment in {segments} by {metric}")
-fig = px.box(df[df['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group", boxpoints = False)
+fig = px.box(df[df['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group", points = False)
 fig.update_traces(quartilemethod="exclusive") 
 st.plotly_chart(fig)
