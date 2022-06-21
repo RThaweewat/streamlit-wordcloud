@@ -5,6 +5,11 @@ import plotly.express as px
 df = pd.read_pickle('rfm_results_cleaned.pkl')
 df_no_out = df.query("Monetary <= 30000")
 st.header("Boxplot for RFM Segmentation")
+st. markdown("""
+Author: Thaweewat Rugsujarit, 22/6/2022
+Associate Data Scientist, DI.
+thaweewr@scg.com
+""")
 
 clist = df['segment2_lv1'].unique()
 segments = st.selectbox("Select a segment:" ,clist)
