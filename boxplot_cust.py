@@ -5,9 +5,11 @@ import plotly.express as px
 df = pd.read_pickle('rfm_results_cleaned.pkl')
 
 clist = df['segment2_lv1'].unique()
-segments = st.sidebar.selectbox("Select a segment:",clist)
+segments = st.selectbox("Select a segment:" ,clist)
+metric = st.selectbox("By Metric:" , ('Recency', 'Monetary', 'Frequency'))
+st.write('Data points:', len(df[df['segment2_lv1'] == segments]))
 
-st.header("GDP per Capita over time")
-fig = px.box(df[df['segment2_lv1'] == segments], x="Segment", y="Recency", color="Churn_group")
+st.header("RFM Segment in " + segments + " by" + metric)
+fig = px.box(df[df['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group")
 fig.update_traces(quartilemethod="exclusive") 
 st.plotly_chart(fig)
