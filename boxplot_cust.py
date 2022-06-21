@@ -4,8 +4,8 @@ import plotly.express as px
 
 df = pd.read_pickle('rfm_results_cleaned.pkl')
 
+st.header("Boxplot for RFM Segmentation")
 
-st.header(f"RFM Segment in {segments} by {metric}")
 clist = df['segment2_lv1'].unique()
 segments = st.selectbox("Select a segment:" ,clist)
 metric = st.selectbox("By Metric:" , ('Recency', 'Monetary', 'Frequency'))
@@ -18,7 +18,7 @@ FMCG_rfm_level_agg = df[df['segment2_lv1'] == segments].groupby('Segment').agg({
 }).round(1)
 
 st.dataframe(FMCG_rfm_level_agg.style.highlight_max(axis=0))
-
+st.subheader(f"RFM Segment in {segments} by {metric}")
 fig = px.box(df[df['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group", boxpoints = False)
 fig.update_traces(quartilemethod="exclusive") 
 st.plotly_chart(fig)
