@@ -6,7 +6,7 @@ df = pd.read_pickle('rfm_results_cleaned.pkl')
 df_no_out = df.query("Monetary <= 30000")
 df_no_out = df_no_out.query("Frequency <= 30")
 st.title("RFM VISUALIZATION (Internal only)")
-
+st.warning('The dataset did not contain personally identifying information (Ex. CUSID)')
 
 st.markdown("""
 Author: [Thaweewat Rugsujarit](thaweewr@scg.com) (Associate Data-scientist, Digital Office)
@@ -51,5 +51,5 @@ fig = px.box(df_no_out[df_no_out['segment2_lv1'] == segments], x="Segment", y=me
 fig.update_traces(quartilemethod="exclusive") 
 st.plotly_chart(fig)
 
-st.subheader(f"{segments} gegment - Scatter plot")
+st.subheader(f"{segments} segment - Scatter plot")
 st.plotly_chart(fig_1)
