@@ -5,8 +5,8 @@ import plotly.express as px
 df = pd.read_pickle('rfm_results_cleaned.pkl')
 df_no_out = df.query("Monetary <= 30000")
 df_no_out = df_no_out.query("Frequency <= 30")
-st.title("RFM VISUALIZATION (Internal only)")
-st.warning('The dataset did not contain personally identifying information (Ex. CUSID)')
+st.title("RFM VISUALIZATION")
+st.warning('INTERNAL ONLY: The dataset did not contain personally identifying information (Ex. CUSID)')
 
 st.markdown("""
 Author: [Thaweewat Rugsujarit](thaweewr@scg.com) (Associate Data-scientist, Digital Office)
