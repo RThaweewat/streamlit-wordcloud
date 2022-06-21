@@ -6,10 +6,9 @@ df = pd.read_pickle('rfm_results_cleaned.pkl')
 df_no_out = df.query("Monetary <= 30000")
 st.title("RFM Segmentation (Internal use only)")
 st.markdown("""
-Author: Thaweewat Rugsujarit""")
-
-st.markdown("""
-Associate Data Scientist, DI
+Author: Thaweewat Rugsujarit\n
+Associate Data Scientist\n
+Digital Intelligence DO\n
 thaweewr@scg.com
 """)
 
