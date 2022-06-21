@@ -4,6 +4,7 @@ import plotly.express as px
 
 df = pd.read_pickle('rfm_results_cleaned.pkl')
 df_no_out = df.query("Monetary <= 30000")
+df_no_out = df_no_out.query("Frequency <= 30")
 st.title("RFM VISUALIZATION (Internal only)")
 st.markdown("""
 Author: Thaweewat Rugsujarit. Associate Data Scientist, Digital Intelligence (Digital Office)\n
