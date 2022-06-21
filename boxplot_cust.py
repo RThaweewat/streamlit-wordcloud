@@ -11,7 +11,7 @@ st.title("RFM VISUALIZATION (Internal only)")
 name1, name2 = st.columns(2)
 with name1:
     st.markdown("""
-Author: Thaweewat Rugsujarit DI, Digital Office
+Author: Thaweewat Rugsujarit (DI, Digital Office)
 """)
 
 
@@ -48,10 +48,10 @@ fig_1 = px.scatter(df_no_out[df_no_out['segment2_lv1'] == segments], x='Recency'
 st.dataframe(test.style.background_gradient(axis=0))
 
 
-st.subheader(f"RFM Segment in {segments} by {metric}")
+st.subheader(f"RFM segment in {segments} by {metric}")
 fig = px.box(df_no_out[df_no_out['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group", points = False)
 fig.update_traces(quartilemethod="exclusive") 
 st.plotly_chart(fig)
 
-st.subheader(f"{segments} Segment Scatter plot")
+st.subheader(f"{segments} gegment - Scatter plot")
 st.plotly_chart(fig_1)
