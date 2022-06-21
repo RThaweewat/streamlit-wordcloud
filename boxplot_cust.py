@@ -6,7 +6,7 @@ df = pd.read_pickle('rfm_results_cleaned.pkl')
 df_no_out = df.query("Monetary <= 30000")
 st.title("RFM VISUALIZATION (Internal use only)")
 st.markdown("""
-Author: Thaweewat Rugsujarit. Associate Data Scientist, Digital Intelligence DO\n
+Author: Thaweewat Rugsujarit. Associate Data Scientist, Digital Intelligence (Digital Office)\n
 thaweewr@scg.com
 """)
 
