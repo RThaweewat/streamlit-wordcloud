@@ -5,7 +5,7 @@ import plotly.express as px
 df = pd.read_pickle('rfm_results_cleaned.pkl')
 
 
-st.header("RFM Segment in " + segments + " by" + metric)
+st.header(f"RFM Segment in {segments} by {metric}")
 clist = df['segment2_lv1'].unique()
 segments = st.selectbox("Select a segment:" ,clist)
 metric = st.selectbox("By Metric:" , ('Recency', 'Monetary', 'Frequency'))
