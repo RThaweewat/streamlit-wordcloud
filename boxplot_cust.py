@@ -24,7 +24,7 @@ test.columns = ['index', 'Segment', 'Recency (mean)',
 test = test[['Segment','Count', 'Recency (mean)',
        'Frequency (mean)', 'Monetary (mean)']]
 
-df_no_out = df.query("Monetary <= 50000")
+df_no_out = df.query("Monetary <= 30000")
 st.dataframe(test.style.background_gradient(axis=0))
 st.subheader(f"RFM Segment in {segments} by {metric}")
 fig = px.box(df_no_out[df_no_out['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group", points = False)
