@@ -25,8 +25,7 @@ test.columns = ['index', 'Segment', 'Recency (mean)',
 test = test[['Segment','Count', 'Recency (mean)',
        'Frequency (mean)', 'Monetary (mean)']]
 
-fig_1 = px.scatter_3d(df_no_out[df_no_out['segment2_lv1'] == segments], x='Recency', y='Monetary', z='Frequency',
-              color='Segments')
+fig_1 = px.scatter_3d(df_no_out[df_no_out['segment2_lv1'] == segments], x='Recency', y='Monetary', z='Frequency', color='Segment')
 st.plotly_chart(fig_1)
 
 st.dataframe(test.style.background_gradient(axis=0))
