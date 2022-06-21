@@ -54,10 +54,19 @@ st.dataframe(test.style.background_gradient(axis=0))
 
 
 st.subheader(f"RFM segment in {segments} by {metric}")
-fig = px.box(df_no_out[df_no_out['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group", points = False)
-fig.update_traces(quartilemethod="exclusive") 
-st.plotly_chart(fig)
+churn_on = st.radio(
+     "Show churn prediction",
+     ('YES', 'NO')
 
+if churn_on == 'YES':
+    fig = px.box(df_no_out[df_no_out['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group", points = False)
+    fig.update_traces(quartilemethod="exclusive") 
+    st.plotly_chart(fig)
+ else:
+    fig = px.box(df_no_out[df_no_out['segment2_lv1'] == segments], x="Segment", y=metric, points = False)
+    fig.update_traces(quartilemethod="exclusive") 
+    st.plotly_chart(fig)
+        
 st.subheader(f"{segments} segment - Scatter plot")
 st.plotly_chart(fig_1)
 
