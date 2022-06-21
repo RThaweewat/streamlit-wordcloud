@@ -4,7 +4,7 @@ import plotly.express as px
 
 df = pd.read_pickle('rfm_results_cleaned.pkl')
 df_no_out = df.query("Monetary <= 30000")
-st.title("RFM VISUALIZATION (Internal use only)")
+st.title("RFM VISUALIZATION (Internal only)")
 st.markdown("""
 Author: Thaweewat Rugsujarit. Associate Data Scientist, Digital Intelligence (Digital Office)\n
 thaweewr@scg.com
@@ -12,7 +12,7 @@ thaweewr@scg.com
 
 
 clist = df['segment2_lv1'].unique()
-segments = st.selectbox("Select a segment:" ,clist)
+segments = st.selectbox("Select main segment:" ,clist)
 metric = st.selectbox("By Metric:" , ('Recency', 'Monetary', 'Frequency'))
 st.write('Data points:', len(df[df['segment2_lv1'] == segments]))
 
