@@ -6,19 +6,25 @@ df = pd.read_pickle('rfm_results_cleaned.pkl')
 df_no_out = df.query("Monetary <= 30000")
 df_no_out = df_no_out.query("Frequency <= 30")
 st.title("RFM VISUALIZATION (Internal only)")
-st.markdown("""
-Author: Thaweewat Rugsujarit. Associate Data Scientist, Digital Intelligence (Digital Office)\n
-thaweewr@scg.com
+
+
+name1, name2 = st.columns(2)
+with name1:
+    st.markdown("""
+Author: Thaweewat Rugsujarit. thaweewr@scg.com
 """)
+with name2:
+    st.markdown("""
+Associate Data Scientist, Digital Intelligence (Digital Office)
+""")
+
 
 
 clist = df['segment2_lv1'].unique()
 
 col1, col2 = st.columns(2)
-
 with col1:
     segments = st.selectbox("Select main segment:" ,clist)
-
 with col2:
     metric = st.selectbox("By Metric:" , ('Recency', 'Monetary', 'Frequency'))
  
