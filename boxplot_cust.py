@@ -55,7 +55,7 @@ st.dataframe(test.style.background_gradient(axis=0))
 
 st.subheader(f"RFM segment in {segments} by {metric}")
 
-agree = st.checkbox('I agree')
+agree = st.checkbox('Show churn prediction (High/Low)')
 
 if agree:
     fig = px.box(df_no_out[df_no_out['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group", points = False)
