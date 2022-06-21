@@ -14,7 +14,7 @@ thaweewr@scg.com
 
 clist = df['segment2_lv1'].unique()
 segments = st.selectbox("Select main segment:" ,clist)
-metric = st.selectbox("By Metric:" , ('Recency', 'Monetary', 'Frequency'))
+
 st.write('Data points:', len(df[df['segment2_lv1'] == segments]))
 
 FMCG_rfm_level_agg = df[df['segment2_lv1'] == segments].groupby('Segment').agg({
@@ -36,6 +36,7 @@ fig_1 = px.scatter(df_no_out[df_no_out['segment2_lv1'] == segments], x='Recency'
 
 st.dataframe(test.style.background_gradient(axis=0))
 st.subheader(f"RFM Segment in {segments} by {metric}")
+metric = st.selectbox("By Metric:" , ('Recency', 'Monetary', 'Frequency'))
 fig = px.box(df_no_out[df_no_out['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group", points = False)
 fig.update_traces(quartilemethod="exclusive") 
 st.plotly_chart(fig)
