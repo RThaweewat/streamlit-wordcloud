@@ -53,3 +53,7 @@ st.plotly_chart(fig)
 
 st.subheader(f"{segments} segment - Scatter plot")
 st.plotly_chart(fig_1)
+
+st.markdown("""
+Latest Update: 22/6/2022
+""")
