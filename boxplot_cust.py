@@ -13,8 +13,16 @@ thaweewr@scg.com
 
 
 clist = df['segment2_lv1'].unique()
-segments = st.selectbox("Select main segment:" ,clist)
-metric = st.selectbox("By Metric:" , ('Recency', 'Monetary', 'Frequency'))
+
+col1, col2 = st.columns(2)
+
+with col1:
+    segments = st.selectbox("Select main segment:" ,clist)
+
+with col2:
+    metric = st.selectbox("By Metric:" , ('Recency', 'Monetary', 'Frequency'))
+ 
+
 st.subheader(f"RFM Segment in {segments} by {metric}")
 st.write('Data points:', len(df[df['segment2_lv1'] == segments]))
 
