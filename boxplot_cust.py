@@ -9,7 +9,7 @@ st.title("RFM VISUALIZATION (Internal only)")
 
 
 st.markdown("""
-Author: Thaweewat Rugsujarit (Associate Data-scientist, Digital Office)
+Author: [Thaweewat Rugsujarit](thaweewr@scg.com) (Associate Data-scientist, Digital Office)
 """)
 
 
