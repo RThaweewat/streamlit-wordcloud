@@ -12,7 +12,14 @@ st.markdown("""
 Author: [Thaweewat Rugsujarit](thaweewr@scg.com) (Associate Data-scientist, Digital Office)
 """)
 
-
+#panda setting
+pd.options.display.float_format = (
+    lambda x: "{:,.2f}".format(x)
+    if (np.isnan(x) | np.isinf(x))
+    else "{:,.0f}".format(x)
+    if int(x) == x
+    else "{:,.2f}".format(x)
+)
 
 clist = df['segment2_lv1'].unique()
 
