@@ -11,11 +11,7 @@ st.title("RFM VISUALIZATION (Internal only)")
 name1, name2 = st.columns(2)
 with name1:
     st.markdown("""
-Author: Thaweewat Rugsujarit\n\nEmail: thaweewr@scg.com
-""")
-with name2:
-    st.markdown("""
-
+Author: Thaweewat Rugsujarit DI, Digital Office
 """)
 
 
