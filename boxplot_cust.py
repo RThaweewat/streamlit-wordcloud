@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 df = pd.read_pickle('rfm_results_cleaned.pkl')
-
+df_no_out = df.query("Monetary <= 30000")
 st.header("Boxplot for RFM Segmentation")
 
 clist = df['segment2_lv1'].unique()
@@ -17,6 +17,7 @@ FMCG_rfm_level_agg = df[df['segment2_lv1'] == segments].groupby('Segment').agg({
     'Monetary': ['mean', 'count']
 }).round(1).reset_index()
 
+
 test = pd.DataFrame(FMCG_rfm_level_agg.to_records())
 test.columns = ['index', 'Segment', 'Recency (mean)',
        'Frequency (mean)', 'Monetary (mean)',
@@ -24,7 +25,10 @@ test.columns = ['index', 'Segment', 'Recency (mean)',
 test = test[['Segment','Count', 'Recency (mean)',
        'Frequency (mean)', 'Monetary (mean)']]
 
-df_no_out = df.query("Monetary <= 30000")
+fig_1 = px.scatter_3d(df_no_out[df_no_out['segment2_lv1'] == segments], x='Recency', y='Monetary', z='Frequency',
+              color='Segments')
+st.plotly_chart(fig_1)
+
 st.dataframe(test.style.background_gradient(axis=0))
 st.subheader(f"RFM Segment in {segments} by {metric}")
 fig = px.box(df_no_out[df_no_out['segment2_lv1'] == segments], x="Segment", y=metric, color="Churn_group", points = False)
